@@ -1,0 +1,4 @@
+# G.D gitignore
+*.log
+logs/*
+tmp/*

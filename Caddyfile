@@ -1,0 +1,15 @@
+getrix.design {
+	log /server/webapps/getrix.design/logs/caddy-log.txt
+	root /server/webapps/getrix.design/htdocs
+	gzip
+	fastcgi / 127.0.0.1:9000 php
+
+	rewrite {
+		if {path} not_match ^\/wp-admin
+		to {path} {path}/ /index.php?{query}
+	}
+}
+
+files.getrix.design {
+	filemanager /
+}

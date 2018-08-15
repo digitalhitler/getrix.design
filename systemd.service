@@ -1,0 +1,15 @@
+[Unit]
+Description=Caddy Web Server
+Documentation=https://caddyserver.com/docs
+After=network.target
+
+[Service]
+User=www-data
+LimitNOFILE=8192
+ExecStart=/usr/local/bin/caddy -conf=/server/webapps/getrix.design/Caddyfile -pidfile=/var/run/caddy/caddy.pid -log=/server/webapps/getrix.design/logs/caddy-service.log
+PIDFile=/var/run/caddy/caddy.pid
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
